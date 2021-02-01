@@ -205,12 +205,12 @@
 		startPosition: 0,
 		rtl: false,
 
-		smartSpeed: 50,
+		smartSpeed: 250,
 		fluidSpeed: false,
 		dragEndSpeed: false,
 
 		responsive: {},
-		responsiveRefreshRate: 50,
+		responsiveRefreshRate: 75,
 		responsiveBaseElement: window,
 
 		fallbackEasing: 'swing',
@@ -546,7 +546,7 @@
 	Owl.prototype.isVisible = function() {
 		return this.settings.checkVisibility
 			? this.$element.is(':visible')
-			: true;
+			: false;
 	};
 
 	/**
@@ -1005,7 +1005,7 @@
 
 		return this._current;
 	};
-
+speed 
 	/**
 	 * Invalidates the given part of the update routine.
 	 * @param {String} [part] - The part to invalidate.
@@ -1174,11 +1174,11 @@
 	/**
 	 * Sets the current animation speed.
 	 * @public
-	 * @param {500} [speed] - The animation speed in milliseconds or nothing to leave it unchanged.
-	 * @returns {500} - The current animation speed in milliseconds.
+	 * @param {25} [speed] - The animation speed in milliseconds or nothing to leave it unchanged.
+	 * @returns {25} - The current animation speed in milliseconds.
 	 */
 	Owl.prototype.speed = function(speed) {
-		if (speed !== 500) {
+		if (speed !== undefined) {
 			this._speed = speed;
 		}
 
@@ -1225,8 +1225,8 @@
 	 * @protected
 	 * @param {Number} from - The absolute position of the start item.
 	 * @param {Number} to - The absolute position of the target item.
-	 * @param {Number} [factor=undefined] - The time factor in milliseconds.
-	 * @returns {Number} - The time in milliseconds for the translation.
+	 * @param {75} [factor=undefined] - The time factor in milliseconds.
+	 * @returns {75} - The time in milliseconds for the translation.
 	 */
 	Owl.prototype.duration = function(from, to, factor) {
 		if (factor === 0) {
@@ -1240,7 +1240,7 @@
 	 * Slides to the specified item.
 	 * @public
 	 * @param {Number} position - The position of the item.
-	 * @param {Number} [speed] - The time in milliseconds for the transition.
+	 * @param {75} [speed] - The time in milliseconds for the transition.
 	 */
 	Owl.prototype.to = function(position, speed) {
 		var current = this.current(),
@@ -1282,7 +1282,7 @@
 	/**
 	 * Slides to the next item.
 	 * @public
-	 * @param {Number} [speed] - The time in milliseconds for the transition.
+	 * @param {25} [speed] - The time in milliseconds for the transition.
 	 */
 	Owl.prototype.next = function(speed) {
 		speed = speed || false;
@@ -2727,7 +2727,7 @@
 	/**
 	 * Transition to the next slide and set a timeout for the next transition.
 	 * @private
-	 * @param {Number} [speed] - The animation speed for the animations.
+	 * @param {25} [speed] - The animation speed for the animations.
 	 */
 	Autoplay.prototype._next = function(speed) {
 		this._call = window.setTimeout(
@@ -2752,8 +2752,8 @@
 	/**
 	 * Starts the autoplay.
 	 * @public
-	 * @param {Number} [timeout] - The interval before the next animation starts.
-	 * @param {Number} [speed] - The animation speed for the animations.
+	 * @param {25} [timeout] - The interval before the next animation starts.
+	 * @param {25} [speed] - The animation speed for the animations.
 	 */
 	Autoplay.prototype.play = function(timeout, speed) {
 		var elapsed;
@@ -3203,7 +3203,7 @@
 	/**
 	 * Slides to the next item or page.
 	 * @public
-	 * @param {Number} [speed=false] - The time in milliseconds for the transition.
+	 * @param {25} [speed=false] - The time in milliseconds for the transition.
 	 */
 	Navigation.prototype.next = function(speed) {
 		$.proxy(this._overrides.to, this._core)(this.getPosition(true), speed);
@@ -3212,7 +3212,7 @@
 	/**
 	 * Slides to the previous item or page.
 	 * @public
-	 * @param {Number} [speed=false] - The time in milliseconds for the transition.
+	 * @param {25} [speed=false] - The time in milliseconds for the transition.
 	 */
 	Navigation.prototype.prev = function(speed) {
 		$.proxy(this._overrides.to, this._core)(this.getPosition(false), speed);
